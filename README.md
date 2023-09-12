@@ -74,7 +74,8 @@ urlpatterns = [
 Untuk memastikan bahwa program yang telah dibangun akan berjalan sebagaimana mestinya, maka akan dibangun sebuah unit test. ...
 
 ## Bagan Request Client 
-...
+![Diagram](https://github.com/bryanjeshua/jeshuamart/blob/master/DIAGRAM%20MVT.png?raw=true)
+
 ## Why do we need virtual environment?
 Kita membutuhkan _virtual environment_ untuk melokalisir pengaturan sejumlah depedency yang  dengan  proyek kita sehingga bila kedepannya terdapat sejumlah proyek yang membutuhkan sejumlah library/framework yang sama, tidak terjadi _conflict_ terhadap versi suatu library yang mampu membuat program tidak berjalan sebagaimana mestinya.
 ## Perbedaan antara MVC, MVT, MVVM
