@@ -58,8 +58,8 @@ def show_main(request):
     }
     return render(request, "main.html", context)
 ```
-10. Mengonfigurasi routing URL
-Setelah itu, di dalam direktori main, saya membuat sebuah  file bernama urls.py yang berisi
+10. Mengonfigurasi routing URL <br/>
+Di dalam direktori main, saya membuat sebuah  file bernama urls.py yang berisi
 ```
 from django.urls import path
 from main.views import show_main
@@ -71,7 +71,8 @@ urlpatterns = [
 ]
 ```
 11. Membangun unit test
-...
+Untuk memastikan bahwa program yang telah dibangun akan berjalan sebagaimana mestinya, maka akan dibangun sebuah unit test. ...
+
 ## Bagan Request Client 
 ...
 ## Why do we need virtual environment?
