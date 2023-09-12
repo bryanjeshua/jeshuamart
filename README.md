@@ -1,8 +1,8 @@
 # Jeshuamart
-<br>[LINKS TO THE WEBSITE](https://jeshuamart.adaptable.app/main/) <br/>
-<br>Nama    : Bryan Jeshua Mario Timung <br/>
-<br>NPM     : 2206027021 <br/>
-<br>Kelas   : PBP C <br/>
+[LINKS TO THE WEBSITE](https://jeshuamart.adaptable.app/main/) <br/>
+Nama    : Bryan Jeshua Mario Timung <br/>
+NPM     : 2206027021 <br/>
+Kelas   : PBP C <br/>
 ## Requirements
 1. Python3
 ## Libraries Used
