@@ -74,7 +74,9 @@ urlpatterns = [
 11. Membangun unit test<br/>
 Untuk memastikan bahwa program yang telah dibangun akan berjalan sebagaimana mestinya, maka akan dibangun sebuah unit test. Unit test yang dibangun ada dua, yang pertama untuk memastikan path URL dapat diakses, dan yang kedua yakni untuk mengetes apakah template ```main.html``` telah berhasil diterapkan pada halaman ```/main/``` yang sudah dirender
 12. Melakukan deployment ke github<br/>
-Tambahkan semua perubahan dengan menjalankan perintah ```git add .```, lalu lakukan commit dengan menjalankan perintah ```git commit -m "deployment app"```, dan lakukan push ke repository dengan menjalankan instruksi```git push origin master```.
+Semua perubahan akan ditambahkan dengan menjalankan perintah ```git add .```, lalu lakukan commit dengan menjalankan perintah ```git commit -m "deployment app"```, dan lakukan push ke repository dengan menjalankan instruksi```git push origin master```.
+13. Melakukan deployment ke adaptable<br/>
+Setelah aplikasi telah berjalan di local machine dan telah di-deploy di github, deployment dilakukan melalui adaptable dengan menghubungkan adaptable kepada existing repository, dalam kasus ini ialah repository jeshuamart. Branch yang sesuai dipilih, dengan pengaturan python app template sebagai app template  postgresql sebagai database template, lalu versi python sesuai projek dipilih (dalam kasus ini 3.11) dan deployment command ```python manage.py migrate && gunicorn jeshuamart.wsgi``` dimasukkan.
 ## Bagan Request Client 
 ![Diagram](https://github.com/bryanjeshua/jeshuamart/blob/master/DIAGRAM%20MVT.png?raw=true)
 Dari gambar di atas dapat ditarik sebuah kesimpulan yakni dalam aplikasi Django, ketika ada http request, maka urls.py akan meneruskannya menuju kepada views.py yang sesuai. Kemudian views.py akan melakukan ragam perintah yang dilakukan, misalnya melakukan read/write data dengan berinteraksi dengan models.py, kemudian main.html akan melakukan pengaturan tampilan yang sesuai terhadap data/komponen yang akan ditampilkan. Setelah itu, maka akan dikirimkan http response berupa file html kepada pengguna oleh views.py.
