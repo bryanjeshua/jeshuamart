@@ -75,7 +75,12 @@ Untuk memastikan bahwa program yang telah dibangun akan berjalan sebagaimana mes
 
 ## Bagan Request Client 
 ![Diagram](https://github.com/bryanjeshua/jeshuamart/blob/master/DIAGRAM%20MVT.png?raw=true)
-
+Dari gambar di atas dapat ditarik sebuah kesimpulan yakni dalam aplikasi Django, ketika ada http request, maka urls.py akan meneruskannya menuju kepada views.py yang sesuai. Kemudian views.py akan melakukan ragam perintah yang dilakukan, misalnya melakukan read/write data dengan berinteraksi dengan models.py, kemudian main.html akan melakukan pengaturan tampilan yang sesuai terhadap data/komponen yang akan ditampilkan. Setelah itu, maka akan dikirimkan http response berupa file html kepada pengguna.
 ## Why do we need virtual environment?
 Kita membutuhkan _virtual environment_ untuk melokalisir pengaturan sejumlah depedency yang  dengan  proyek kita sehingga bila kedepannya terdapat sejumlah proyek yang membutuhkan sejumlah library/framework yang sama, tidak terjadi _conflict_ terhadap versi suatu library yang mampu membuat program tidak berjalan sebagaimana mestinya.
 ## Perbedaan antara MVC, MVT, MVVM
+MVT merupakan pola pengembangan arsitektur yang digunakan di _web development_ yang berkaitan erat dengan framework web pada python seperti Django. Terdapat tiga komponen yakni Model (yang merepresentasikan data dan logika utama aplikasi, termasuk membaca dan menyimpan data), View (yang mengatur bagaimana data yang dimiliki akan ditayangkan), Template (yang berfungsi mengatur layout halaman web untuk ditayangkan).
+MVC merupakan pola pengembangan arsitektur yang digunakan DALAM _software development_  terutama dalam membangun GUI dan website, dan terdiri atas tiga komponen yakni Model, View (berisi pengaturan layer presentasi data yang didapat dari model, termasuk pengaturan button, forms, dan beragam komponen lainnya), dan Controller (menghubungkan model dan view, misalnya mengelola input dari user pada view untuk diteruskan ke model)
+MVVM merupakan (Model-View-ViewModel)
+
+Perbedaan ketiganya terdapat pada cara mereka mengatur hubungan antara model, view, dan komponen perantaranya (baik template, controller, maupun viewmodel). MVT menggunakan template sebagai perantara model dan view. MVC menggunakan controller untuk mengatur alur aplikasi. Sedangkan, MVVM menggunakan ViewModel sebagai perantara yang mengelola tampilan dan data yang akan ditampilan ke view.
