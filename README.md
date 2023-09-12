@@ -13,7 +13,7 @@ Kelas   : PBP C <br/>
 1. Membangun repository github yang baru<br/>
 Repository yang baru dibangun dengan nama **jeshuamart** akan menjadi sarana deployment aplikasi pada adaptable. Ini dilakukan dengan cara membangun folder yang sama dengan nama repositorynya, kemudian menuliskan perintah ```git init``` kemudian ```git branch -M main``` lalu ```git remote add origin https://github.com/bryanjeshua/jeshuamart```
 2. Mendeploy virtual environment<br/>
-Fungsi virtual environment adalah ... . Dalam melakukan deployment, kita menjalankan skrip ```python -m venv env```, setelah itu kita mengaktivasi virtual environment tersebut dengan menjalankan skrip ```env\Scripts\activate``` pada direktori repositori.
+Fungsi virtual environment adalah supaya library yang kita pakai senantiasa konsisten, baik versi dan pengaturan lainnya. Dalam melakukan deployment virtual environment, kita menjalankan skrip ```python -m venv env```, setelah itu kita mengaktivasi virtual environment tersebut dengan menjalankan skrip ```env\Scripts\activate``` pada direktori repositori.
 3. Menginstal django<br/>
 Sesuai dengan tutorial, peng-_instal_-an dilaksanakan dengan menuliskan sejumlah komponen library pada requirements.txt dan kemudian menjalankan perintah ```pip install -r requirements.txt```.  
 4. Membuat proyek django<br/>
