@@ -8,7 +8,7 @@ Kelas   : PBP C <br/>
 ## Libraries Used
 1. Django
 2. Datetime
-## How to Implement
+## How to Build
 1. Membangun repository github yang baru
 Repository yang baru dibangun dengan nama **jeshuamart** akan menjadi sarana deployment aplikasi pada adaptable. Ini dilakukan dengan cara membangun folder yang sama dengan nama repositorynya, kemudian menuliskan perintah ```git init``` kemudian ```git branch -M main``` lalu ```git remote add origin https://github.com/bryanjeshua/jeshuamart```
 2. Mendeploy virtual environment
