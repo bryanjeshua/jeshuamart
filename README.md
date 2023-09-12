@@ -23,7 +23,7 @@ Melalui penambahan "*" pada ```ALLOWED_HOST``` di ```settings.py```, saya mengiz
 6. Membuat aplikasi main<br/>
 Dengan menjalankan perintah ```python manage.py startapp main```, maka akan terbangun direktori main. Lalu, pada ```settings.py``` kita menambahkan ```main,``` pada ```INSTALLED_APPS```
 7. Membangun template HTML<br/>
-Template HTML yang akan dibangun terdiri dari sejumlah komponen, antara lain
+Template HTML yang akan dibangun pada direktori ```templates``` di dalam ```main``` terdiri dari sejumlah komponen, antara lain
 - Header berupa judur dan tagline
 - Name: (berisi nama produk)
 - Amount: (berisi jumlah produk dalam lusin)
@@ -31,8 +31,9 @@ Template HTML yang akan dibangun terdiri dari sejumlah komponen, antara lain
 - Date in: (berisi tanggal pasokan terakhir datang)
 - Stock less than 5 days: (berisi keterangan apakah pasokan akan habis kurang dari lima hari lagi)
 - Categories: (berisi keterangan jenis product)
+- Identitas nama dan NPM
 8. Mengimplementasikan Models dan Melakukan Migrate<br/>
-Komponen models adalah sebagai berikut
+Komponen models pada ```models.py``` dalam direktori main yang hendak diatur adalah sebagai berikut
 - name: character, length <= 25.
 - amount: integer, default = 0.  
 - description: text, default = "".
@@ -43,7 +44,7 @@ Setelah semua komponen dibangun, maka jalankan perintah
 ```python manage.py makemigrations```
 dan
 ```python manage.py migrate```
-untuk mengimplementasikan model ke basis data.
+untuk mengimplementasikan model yang baru tersebut ke basis data.
 9. Membangun fungsi show_main untuk mengintegrasikan<br/>
 Untuk menghubungkan antara _view_ dan _template_, pertama kita harus memastikan pada views.py. telah dilakukan import render dengan cara menambahkan baris ```from django.shortcuts import render```. Lalu, setelah melakukan import, saya membangun fungsi show_main dengan cara
 ```
@@ -59,7 +60,7 @@ def show_main(request):
     return render(request, "main.html", context)
 ```
 10. Mengonfigurasi routing URL <br/>
-Di dalam direktori main, saya membuat sebuah  file bernama urls.py yang berisi
+Di dalam direktori main, saya membuat sebuah file bernama urls.py sehingga rute URL pada aplikasi main tepat sasaran. File ini  berisi
 ```
 from django.urls import path
 from main.views import show_main
@@ -71,7 +72,7 @@ urlpatterns = [
 ]
 ```
 11. Membangun unit test<br/>
-Untuk memastikan bahwa program yang telah dibangun akan berjalan sebagaimana mestinya, maka akan dibangun sebuah unit test. ...
+Untuk memastikan bahwa program yang telah dibangun akan berjalan sebagaimana mestinya, maka akan dibangun sebuah unit test. Unit test yang dibangun ada dua, yang pertama untuk memastikan path URL dapat diakses, dan yang kedua yakni untuk mengetes apakah template ```main.html``` telah berhasil menjadi template halaman ```/main/``` yang sudah dirender
 
 ## Bagan Request Client 
 ![Diagram](https://github.com/bryanjeshua/jeshuamart/blob/master/DIAGRAM%20MVT.png?raw=true)
