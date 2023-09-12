@@ -1,3 +1,4 @@
+
 # Jeshuamart - _Sahabat Belanja Keluarga Anda!_
 [Tautan menuju website](https://jeshuamart.adaptable.app/main/) <br/>
 Nama    : Bryan Jeshua Mario Timung <br/>
@@ -21,16 +22,58 @@ Proyek django yang baru dibuat dengan menjalankan skrip ```django-admin startpro
 Melalui penambahan "*" pada ```ALLOWED_HOST``` di ```settings.py```, saya mengizinkan semua host untuk mengakses aplikasi ini secara luas.
 6. Membuat aplikasi main
 Dengan menjalankan perintah ```python manage.py startapp main```, maka akan terbangun direktori main. Lalu, pada ```settings.py``` kita menambahkan ```main,``` pada ```INSTALLED_APPS```
-8. Membangun template HTML
-Template
-10. Mengimplementasikan Models dan Melakukan Migrate
+7. Membangun template HTML
+Template HTML yang akan dibangun terdiri dari sejumlah komponen, antara lain
+- Header berupa judur dan tagline
+- Name: (berisi nama produk)
+- Amount: (berisi jumlah produk dalam lusin)
+- Description: (berisi PT pemasok)
+- Date in: (berisi tanggal pasokan terakhir datang)
+- Stock less than 5 days: (berisi keterangan apakah pasokan akan habis kurang dari lima hari lagi)
+- Categories: (berisi keterangan jenis product)
+8. Mengimplementasikan Models dan Melakukan Migrate
 Komponen models adalah sebagai berikut
-Migrate 
-11. Membangun fungsi show_main untuk mengintegrasikan
-12. Mengonfigurasi routing URL
-13. Membangun unit test
+- name: character, length <= 25.
+- amount: integer, default = 0.  
+- description: text, default = "".
+- date_in: date.
+- stock: boolean, default = 0.
+- categories: character, length <=100, default = "uncategorized".<br/>
+Setelah semua komponen dibangun, maka jalankan perintah
+```python manage.py makemigrations```
+dan
+```python manage.py migrate```
+untuk mengimplementasikan model ke basis data.
+9. Membangun fungsi show_main untuk mengintegrasikan
+Untuk menghubungkan antara _view_ dan _template_, pertama kita harus memastikan pada views.py. telah dilakukan import render dengan cara menambahkan baris ```from django.shortcuts import render```. Lalu, setelah melakukan import, saya membangun fungsi show_main dengan cara
+```
+def show_main(request):
+    context = {
+        'name' : "Aqua",
+        'amount' : 12,
+        'description': 'PT. Danone',
+        'date_in': date.today(),
+        'stock': True,
+        'categories': 'Beverages',
+    }
+    return render(request, "main.html", context)
+```
+10. Mengonfigurasi routing URL
+Setelah itu, di dalam direktori main, saya membuat sebuah  file bernama urls.py yang berisi
+```
+from django.urls import path
+from main.views import show_main
+
+app_name = 'main'
+
+urlpatterns = [
+    path('', show_main, name='show_main'),
+]
+```
+11. Membangun unit test
+...
 ## Bagan Request Client 
 ...
 ## Why do we need virtual environment?
-Kita membutuhkan _virtual environment_ untuk melokalisir pengaturan sejumlah library/framework yang dependent dengan  proyek kita sehingga bila kedepannya terdapat sejumlah proyek yang membutuhkan sejumlah library/framework yang sama, tidak terjadi _conflict_ yang mampu membuat program tidak berjalan sebagaimana mestinya
+Kita membutuhkan _virtual environment_ untuk melokalisir pengaturan sejumlah depedency yang  dengan  proyek kita sehingga bila kedepannya terdapat sejumlah proyek yang membutuhkan sejumlah library/framework yang sama, tidak terjadi _conflict_ terhadap versi suatu library yang mampu membuat program tidak berjalan sebagaimana mestinya.
 ## Perbedaan antara MVC, MVT, MVVM
