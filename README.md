@@ -17,16 +17,18 @@ Fungsi virtual environment adalah ... . Dalam melakukan deployment, kita menjala
 Sesuai dengan tutorial, peng-_instal_-an dilaksanakan dengan menuliskan sejumlah komponen library pada requirements.txt dan kemudian menjalankan perintah ```pip install -r requirements.txt```.  
 4. Membuat proyek django
 Proyek django yang baru dibuat dengan menjalankan skrip ```django-admin startproject jeshuamart .```
-5. Mengatur allowed host ...
-
+5. Mengatur _allowed host_
+Melalui penambahan "*" pada ```ALLOWED_HOST``` di ```settings.py```, saya mengizinkan semua host untuk mengakses aplikasi ini secara luas.
 6. Membuat aplikasi main
-7. Membangun template HTML
-8. Mengimplementasikan Models dan Melakukan Migrate
+Dengan menjalankan perintah ```python manage.py startapp main```, maka akan terbangun direktori main. Lalu, pada ```settings.py``` kita menambahkan ```main,``` pada ```INSTALLED_APPS```
+8. Membangun template HTML
+Template
+10. Mengimplementasikan Models dan Melakukan Migrate
 Komponen models adalah sebagai berikut
 Migrate 
-10. Membangun fungsi show_main untuk mengintegrasikan
-11. Mengonfigurasi routing URL
-12. Membangun unit test
+11. Membangun fungsi show_main untuk mengintegrasikan
+12. Mengonfigurasi routing URL
+13. Membangun unit test
 ## Bagan Request Client 
 ...
 ## Why do we need virtual environment?
