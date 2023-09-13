@@ -60,7 +60,7 @@ def show_main(request):
     return render(request, "main.html", context)
 ```
 10. Mengonfigurasi routing URL dalam aplikasi main<br/>
-Di dalam direktori main, saya membuat sebuah file bernama urls.py sehingga rute URL pada aplikasi main tepat sasaran. File ini  berisi
+Di dalam direktori ```main```, saya membuat sebuah file bernama ```urls.py``` sehingga fungsi yang dipetakan ```views.py``` tepat sasaran. File ini  berisi
 ```
 from django.urls import path
 from main.views import show_main
@@ -72,7 +72,7 @@ urlpatterns = [
 ]
 ```
 11. Mengonfirmasi routing URL proyek<br/>
-Di dalam direktori jeshuamart, saya mengimpor fungsi ```include``` dari ```django.urls```, dan menambahkan ```path('main/', include('main.urls')),``` pada ```url_patterns```
+Di dalam direktori ```jeshuamart```, saya mengimpor fungsi ```include``` dari ```django.urls```, dan menambahkan ```path('main/', include('main.urls')),``` pada ```url_patterns``` sehingga rute URL tingkat proyek dapat mengimpor rute URL dari aplikasi-aplikasi (yang terdapat di ```urls.py``` masing-masing) sehingga aplikasi django lebih modular.
 12. Membangun unit test<br/>
 Untuk memastikan bahwa program yang telah dibangun akan berjalan sebagaimana mestinya, maka akan dibangun sebuah unit test. Unit test yang dibangun ada dua, yang pertama untuk memastikan path URL dapat diakses, dan yang kedua yakni untuk mengetes apakah template ```main.html``` telah berhasil diterapkan pada halaman ```/main/``` yang sudah dirender
 13. Melakukan deployment ke github<br/>
