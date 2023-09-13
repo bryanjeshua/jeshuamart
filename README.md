@@ -59,7 +59,7 @@ def show_main(request):
     }
     return render(request, "main.html", context)
 ```
-10. Mengonfigurasi routing URL <br/>
+10. Mengonfigurasi routing URL dalam aplikasi main<br/>
 Di dalam direktori main, saya membuat sebuah file bernama urls.py sehingga rute URL pada aplikasi main tepat sasaran. File ini  berisi
 ```
 from django.urls import path
@@ -71,11 +71,13 @@ urlpatterns = [
     path('', show_main, name='show_main'),
 ]
 ```
-11. Membangun unit test<br/>
+11. Mengonfirmasi routing URL proyek<br/>
+Di dalam direktori jeshuamart, saya mengimpor fungsi ```include``` dari ```django.urls```, dan menambahkan ```path('main/', include('main.urls')),``` pada ```url_patterns```
+12. Membangun unit test<br/>
 Untuk memastikan bahwa program yang telah dibangun akan berjalan sebagaimana mestinya, maka akan dibangun sebuah unit test. Unit test yang dibangun ada dua, yang pertama untuk memastikan path URL dapat diakses, dan yang kedua yakni untuk mengetes apakah template ```main.html``` telah berhasil diterapkan pada halaman ```/main/``` yang sudah dirender
-12. Melakukan deployment ke github<br/>
+13. Melakukan deployment ke github<br/>
 Semua perubahan akan ditambahkan dengan menjalankan perintah ```git add .```, lalu lakukan commit dengan menjalankan perintah ```git commit -m "deployment app"```, dan lakukan push ke repository dengan menjalankan instruksi```git push origin master```.
-13. Melakukan deployment ke adaptable<br/>
+14. Melakukan deployment ke adaptable<br/>
 Setelah aplikasi telah berjalan di local machine dan telah di-deploy di github, deployment dilakukan melalui adaptable dengan menghubungkan adaptable kepada existing repository, dalam kasus ini ialah repository jeshuamart. Branch yang sesuai dipilih, dengan pengaturan python app template sebagai app template  postgresql sebagai database template, lalu versi python sesuai projek dipilih (dalam kasus ini 3.11) dan deployment command ```python manage.py migrate && gunicorn jeshuamart.wsgi``` dimasukkan.
 ## Bagan Request Client 
 ![Diagram](https://github.com/bryanjeshua/jeshuamart/blob/master/DIAGRAM%20MVT.png?raw=true)
