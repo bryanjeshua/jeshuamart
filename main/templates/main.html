@@ -1,35 +1,49 @@
-<!-- <h1>Jeshuamart - Sahabat Belanja Keluarga Anda</h1>
-
-<h5>Name: </h5>
-<p> {{ name }}</p> 
-<h5>Amount: </h5>
-<p>{{ amount }}</p> 
-<h5>Description: </h5>
-<p>{{ description }}</p> 
-<h5>Date In: </h5>
-<p>{{ date_in }}</p> 
-<h5>Stock less than 5 days: </h5>
-<p>{{ stock }}</p> 
-<h5>Categories: </h5>
-<p>{{ categories }}</p> 
-<h6>Made by Bryan Jeshua Mario Timung - 2206027021</h6> -->
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Shopping List Page</h1>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: 'Calibri';
+        }
+    
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            font-family: 'Calibri';
+        }
+        
+        th{
+            text-align: center;
+        }
 
-    <h5>Name:</h5>
-    <p>{{name}}</p>
+        h1{ text-align: center;
+            font-family: 'Calibri';        
+        }
 
-    <h5>Class:</h5>
-    <p>{{class}}</p>
+        .center-button{
+            text-align: center;
+            font-family: 'Calibri';
+        }
 
+        .center-button button{
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <h1>Jeshuamart Inventory</h1>
     <table>
         <tr>
             <th>Name</th>
             <th>Price</th>
+            <th>Amount</th>
             <th>Description</th>
             <th>Date Added</th>
+            <th>Stock Less than 5 Days</th>
+            <th>Categories</th>
+
         </tr>
 
         {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
@@ -38,17 +52,23 @@
             <tr>
                 <td>{{product.name}}</td>
                 <td>{{product.price}}</td>
+                <td>{{product.amount}}</td>
                 <td>{{product.description}}</td>
-                <td>{{product.date_added}}</td>
+                <td>{{product.date_in}}</td>
+                <td>{{product.stock}}</td>
+                <td>{{product.categories}}</td>
+
             </tr>
         {% endfor %}
     </table>
 
     <br />
 
-    <a href="{% url 'main:create_product' %}">
-        <button>
-            Add New Product
-        </button>
-    </a>
+    <div class="center-button">
+        <a href="{% url 'main:create_product' %}">
+            <button>
+                Add New Product
+            </button>
+        </a>
+    </div>
 {% endblock content %}

@@ -6,26 +6,28 @@ from datetime import date
 from django.http import HttpResponse
 from django.core import serializers
 # Create your views here.
-# def show_main(request):
-#     context = {
-#         'name' : "Aqua",
-#         'amount' : 12,
-#         'description': 'PT. Danone',
-#         'date_in': date.today(),
-#         'stock': True,
-#         'categories': 'Beverages',
-#     }
-#     return render(request, "main.html", context)
 def show_main(request):
     products = Product.objects.all()
-
     context = {
-        'name': 'Pak Bepe', # Nama kamu
-        'class': 'PBP A', # Kelas PBP kamu
-        'products': products
+        'name' : "Aqua",
+        'amount' : 12,
+        'description': 'PT. Danone',
+        'date_in': date.today(),
+        'stock': True,
+        'categories': 'Beverages',
+        'products' : products
     }
-
     return render(request, "main.html", context)
+# def show_main(request):
+#     products = Product.objects.all()
+
+#     context = {
+#         'name': 'Pak Bepe', # Nama kamu
+#         'class': 'PBP A', # Kelas PBP kamu
+#         'products': products
+#     }
+
+#     return render(request, "main.html", context)
     
 def create_product(request):
     form = ProductForm(request.POST or None)
