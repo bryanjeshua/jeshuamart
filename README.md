@@ -97,6 +97,7 @@ POST :
 - Metode POST dapat mengolah data dalam jumlah besar jika dibandingkan dengan GET sehingga jauh lebih disarankan jika ingin melibatkan data submission.
 GET :
 - Ketika menggunakan metode GET, data dari form akan dikirimkan sebagai parameter query pada URL. Biasanya, metode ini digunakan ketika kita hendak mengakses data dari server atau ketika kita hendak melakukan operasi hanya membaca. Metode ini juga cocok untuk melakukan pencarian forms sederhana.
+- 
 ## Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
