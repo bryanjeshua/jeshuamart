@@ -94,10 +94,10 @@ Perbedaan ketiganya terdapat pada cara mereka mengatur hubungan antara model, vi
 Perbedaan antara form POST dan form GET dalam Django adalah sebagai berikut
 <br/>POST :
 - Ketika menggunakan metode POST, data form dikirimkan sebagai bagian dari HTTP Request Body, bukan sebagai parameter query dalam URLnya. Metode ini lebih aman jika dibandingkan dengan GET karena data tersebut tidak terlihat di URL sehingga jauh lebih aman untuk mengirimkan informasi sensitif seperti password.
-- Metode POST dapat mengolah data dalam jumlah besar jika dibandingkan dengan GET sehingga jauh lebih disarankan jika ingin melibatkan data submission.<br/>
-GET :
+- Metode POST dapat mengolah data dalam jumlah besar jika dibandingkan dengan GET sehingga jauh lebih disarankan jika ingin melibatkan data submission.
+<br/>GET :
 - Ketika menggunakan metode GET, data dari form akan dikirimkan sebagai parameter query pada URL. Biasanya, metode ini digunakan ketika kita hendak mengakses data dari server atau ketika kita hendak melakukan operasi hanya membaca. Metode ini juga cocok untuk melakukan pencarian forms sederhana. 
-- 
+- Data ini dapat dilihat pada URL. Ini menyebabkan informasi menjadi kurang aman dan membatasi jumlah data yang dapat dikirimkan.
 ## Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
