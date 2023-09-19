@@ -1,7 +1,7 @@
 
 # Jeshuamart - _Sahabat Belanja Keluarga Anda!_
 [Tautan menuju website](https://jeshuamart.adaptable.app/main/) <br/>
-Nama    : Bryan Jeshua Mario Timung <br>
+Nama    : Bryan Jeshua Mario Timung <br/>
 NPM     : 2206027021 <br/>
 Kelas   : PBP C <br/>
 ## Requirements
