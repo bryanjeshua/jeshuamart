@@ -9,6 +9,8 @@ Kelas   : PBP C <br/>
 ## Libraries Used
 1. Django
 2. Datetime
+TUGAS 2
+## WEEK 02
 ## How to Build
 1. Membangun repository github yang baru<br/>
 Repository yang baru dibangun dengan nama **jeshuamart** akan menjadi sarana deployment aplikasi pada adaptable. Ini dilakukan dengan cara membangun folder yang sama dengan nama repositorynya, kemudian menuliskan perintah ```git init``` kemudian ```git branch -M main``` lalu ```git remote add origin https://github.com/bryanjeshua/jeshuamart```
@@ -90,6 +92,8 @@ MVC merupakan pola pengembangan arsitektur yang digunakan dalam _software develo
 MVVM merupakan pola pengembangan arsitektur yang berkaitan erat dengan pengembangan GUI terutama pada ragam aplikasi yang membutuhkan data binding. MVVM terdiri atas tiga komponen yakni Model, View (bertugas untuk menampilkan data terhadap user dan menangkap interaksi dari user), dan ViewModel (bertugas menghubungkan model dan view, menunjukan data dan perintah yang dapat view gunakan untuk melakukan data binding, dan menyederhanakan tampilan data dari model agar view lebih mudah untuk menampilkannya tanpa berisi logika tampilan antarmukanya)
 
 Perbedaan ketiganya terdapat pada cara mereka mengatur hubungan antara model, view, dan komponen perantaranya (baik template, controller, maupun viewmodel). MVT menggunakan template sebagai perantara model dan view dan bertugas menggambarkan struktur dari halaman web. MVC menggunakan controller untuk menghubungkan model dan view, mengatur input dari user, dan mengelola alur data. Sedangkan, MVVM menggunakan ViewModel sebagai perantara yang mengelola tampilan data yang akan ditampilkan ke view dan mengelola interaksi user.
+
+## WEEK 03
 ## Apa perbedaan antara form POST dan form GET dalam Django?
 Perbedaan antara form POST dan form GET dalam Django adalah sebagai berikut
 <br/>POST :
@@ -112,4 +116,12 @@ JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena
 5. Parsing yang lebih efisien, bisa langsung dilakukan dengan method JSON.parse()
 6. Kompatibilitas dengan sejumlah framework teknologi (misalnya dengan RESTful APIs.
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-1. 
+1. Saya menjalankan virtual environment terlebih dahulu
+2. Kemudian, saya memperbaiki routing urls.py dengan mengubah path main menjadi ''
+3. Selanjutnya, saya membangun forms.py di dalam direktory main untuk menerima data produk yang baru yang akan disimpan ke inventory. Fields yang akan dipakai antara lain ["name", "amount", "price","description", "categories"]
+4. Karena terjadi kebutuhan akan adanya form, maka saya mengimport ProductForm pada views.py. Kemudian, saya juga perlu membangun method create_product untuk membuat formulir yang bisa menambahkan data produk secara otomatis saat submisi dilakukan. Lalu, saya menambahkan fungsi show_main dengan menambahkan konteks antara lain'name', 'amount', 'description', 'date_in', 'stock', 'categories', dan 'products'. 
+5. Lalu saya mengimport fungsi create_product pada urls.py di main, dan menambahkan path url ke dalam variable urlpatterns
+6. Setelah itu, saya membangun folder templates di root. Saya kemudian membuat base.html untuk template dasar sebagai kerangka umum berbagai halaman lainnya dalam web.
+7. Saya kemudian mengatur agar base.html bisa terdeteksi melalui settings.py
+8. Kemudian, saya mengubah tampilan main.html sesuai yang diinginkan.
+9. 
