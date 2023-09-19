@@ -126,3 +126,10 @@ JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena
 8. Kemudian, saya mengubah tampilan main.html sesuai yang diinginkan. Saya menambahkan button "Add New Product" dan mengatur tampilan lainnya
 9. Tak berhenti di sana, saya kemudian membuat pada main/templates suatu file create_product.html yang menampilkan form untuk mengisi.
 10. Lalu saya mencoba mengoperasikan postman sebagai data viewer
+
+## SCREENSHOT GAMBAR
+1. HTML ![](https://github.com/bryanjeshua/jeshuamart/blob/master/image/HTML.png)
+2. JSON ![](https://github.com/bryanjeshua/jeshuamart/blob/master/image/JSON.png)
+3. JSON BY ID ![](https://github.com/bryanjeshua/jeshuamart/blob/master/image/JSONbyID.png)
+4. XML ![](https://github.com/bryanjeshua/jeshuamart/blob/master/image/XML.png)
+5. XML BY ID ![](https://github.com/bryanjeshua/jeshuamart/blob/master/image/XMLbyID.png)
