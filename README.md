@@ -9,6 +9,8 @@ Kelas   : PBP C <br/>
 ## Libraries Used
 1. Django
 2. Datetime
+TUGAS 2
+## WEEK 02
 ## How to Build
 1. Membangun repository github yang baru<br/>
 Repository yang baru dibangun dengan nama **jeshuamart** akan menjadi sarana deployment aplikasi pada adaptable. Ini dilakukan dengan cara membangun folder yang sama dengan nama repositorynya, kemudian menuliskan perintah ```git init``` kemudian ```git branch -M main``` lalu ```git remote add origin https://github.com/bryanjeshua/jeshuamart```
@@ -90,7 +92,37 @@ MVC merupakan pola pengembangan arsitektur yang digunakan dalam _software develo
 MVVM merupakan pola pengembangan arsitektur yang berkaitan erat dengan pengembangan GUI terutama pada ragam aplikasi yang membutuhkan data binding. MVVM terdiri atas tiga komponen yakni Model, View (bertugas untuk menampilkan data terhadap user dan menangkap interaksi dari user), dan ViewModel (bertugas menghubungkan model dan view, menunjukan data dan perintah yang dapat view gunakan untuk melakukan data binding, dan menyederhanakan tampilan data dari model agar view lebih mudah untuk menampilkannya tanpa berisi logika tampilan antarmukanya)
 
 Perbedaan ketiganya terdapat pada cara mereka mengatur hubungan antara model, view, dan komponen perantaranya (baik template, controller, maupun viewmodel). MVT menggunakan template sebagai perantara model dan view dan bertugas menggambarkan struktur dari halaman web. MVC menggunakan controller untuk menghubungkan model dan view, mengatur input dari user, dan mengelola alur data. Sedangkan, MVVM menggunakan ViewModel sebagai perantara yang mengelola tampilan data yang akan ditampilkan ke view dan mengelola interaksi user.
+
+## WEEK 03
 ## Apa perbedaan antara form POST dan form GET dalam Django?
+Perbedaan antara form POST dan form GET dalam Django adalah sebagai berikut
+<br/>POST :
+- Ketika menggunakan metode POST, data form dikirimkan sebagai bagian dari HTTP Request Body, bukan sebagai parameter query dalam URLnya. Metode ini lebih aman jika dibandingkan dengan GET karena data tersebut tidak terlihat di URL sehingga jauh lebih aman untuk mengirimkan informasi sensitif seperti password.
+- Metode POST dapat mengolah data dalam jumlah besar jika dibandingkan dengan GET sehingga jauh lebih disarankan jika ingin melibatkan data submission.
+<br/>GET :
+- Ketika menggunakan metode GET, data dari form akan dikirimkan sebagai parameter query pada URL. Biasanya, metode ini digunakan ketika kita hendak mengakses data dari server atau ketika kita hendak melakukan operasi membaca. Metode ini juga cocok untuk melakukan pencarian forms sederhana. 
+- Data ini dapat dilihat pada URL. Ini menyebabkan informasi menjadi kurang aman dan membatasi jumlah data yang dapat dikirimkan.
 ## Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+Perbedaan utama antara XML, JSON, dan HTML adalah sebagai berikut
+- XML = menggunakan tag (serupa dengan HTML) akan tetapi dapat didefinisikan user. Tidak memiliki tipe data dan memperlakukan semuanya sebagai text. Jauh lebih mudah dibaca orang. Cocok untuk dokumen yang rumit, termasuk pertukaran data yang tidak mendukung JSON.
+- JSON = Menggunakan pasangan key dan value, mendukung tipe data string, number, booleans, array, dan object. Kurang deskriptif jika dibandingkan dengan XML. Ukurannya lebih kecil. Umum digunakan pada web applications, APIs, dan file konfigurasi.0 
+- HTML = Menggunakan tags yang sudah didefinisikan sebelumnya, digunakan untuk mempresentasikan data dan bukan untuk mendeskripsikan tipe data. Untuk menjalankannya, diperlukan browser atau HTML parser. Digunakan untuk web page design, dan tidak umum digunakan untuk pertukaran data.    
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena
+1. Ringan karena ukuran data yang kecil
+2. Mudah dibaca oleh orang sehingga memudahkan saat membangun program
+3. Dapat diolah oleh berbagai bahasa pemrograman
+4. Aspek keamanan yang lebih baik
+5. Parsing yang lebih efisien, bisa langsung dilakukan dengan method JSON.parse()
+6. Kompatibilitas dengan sejumlah framework teknologi (misalnya dengan RESTful APIs.
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+1. Saya menjalankan virtual environment terlebih dahulu
+2. Kemudian, saya memperbaiki routing urls.py dengan mengubah path main menjadi ''
+3. Selanjutnya, saya membangun forms.py di dalam direktory main untuk menerima data produk yang baru yang akan disimpan ke inventory. Fields yang akan dipakai antara lain ["name", "amount", "price","description", "categories"]
+4. Karena terjadi kebutuhan akan adanya form, maka saya mengimport ProductForm pada views.py. Kemudian, saya juga perlu membangun method create_product untuk membuat formulir yang bisa menambahkan data produk secara otomatis saat submisi dilakukan. Lalu, saya menambahkan fungsi show_main dengan menambahkan konteks antara lain'name', 'amount', 'description', 'date_in', 'stock', 'categories', dan 'products'. Selain itu, saya juga membangun method show_xml, show_json, show_json_by_id, show_xml_by_id.
+5. Lalu saya mengimport fungsi create_product pada urls.py di main, dan menambahkan path url ke dalam variable urlpatterns. Begitu juga untuk method yang lainnya
+6. Setelah itu, saya membangun folder templates di root. Saya kemudian membuat base.html untuk template dasar sebagai kerangka umum berbagai halaman lainnya dalam web.
+7. Saya kemudian mengatur agar base.html bisa terdeteksi melalui settings.py
+8. Kemudian, saya mengubah tampilan main.html sesuai yang diinginkan. Saya menambahkan button "Add New Product" dan mengatur tampilan lainnya
+9. Tak berhenti di sana, saya kemudian membuat pada main/templates suatu file create_product.html yang menampilkan form untuk mengisi.
+10. Lalu saya mencoba mengoperasikan postman sebagai data viewer
