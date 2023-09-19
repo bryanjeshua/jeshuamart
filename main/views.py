@@ -18,17 +18,7 @@ def show_main(request):
         'products' : products
     }
     return render(request, "main.html", context)
-# def show_main(request):
-#     products = Product.objects.all()
 
-#     context = {
-#         'name': 'Pak Bepe', # Nama kamu
-#         'class': 'PBP A', # Kelas PBP kamu
-#         'products': products
-#     }
-
-#     return render(request, "main.html", context)
-    
 def create_product(request):
     form = ProductForm(request.POST or None)
 
