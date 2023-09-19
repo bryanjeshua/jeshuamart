@@ -22,7 +22,19 @@
         h1{ text-align: center;
             font-family: 'Calibri';        
         }
-
+        h4 {
+            text-align: center;
+            font-family: 'Calibri';
+            animation: fade 2s infinite;
+        }
+        @keyframes fade {
+        0%, 100%{
+            opacity: 0;
+        }
+        50%{
+            opacity: 1;
+        }
+    }
         .center-button{
             text-align: center;
             font-family: 'Calibri';
@@ -34,6 +46,7 @@
         }
     </style>
     <h1>Jeshuamart Inventory</h1>
+    <h4>Terdapat {{item_count}} item yang tersimpan  </h4>>
     <table>
         <tr>
             <th>Name</th>

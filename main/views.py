@@ -8,14 +8,16 @@ from django.core import serializers
 # Create your views here.
 def show_main(request):
     products = Product.objects.all()
+    item_count = len(products)
     context = {
-        'name' : "Aqua",
+        'name' : "",
         'amount' : 12,
-        'description': 'PT. Danone',
+        'description': '',
         'date_in': date.today(),
-        'stock': True,
-        'categories': 'Beverages',
-        'products' : products
+        'stock': False,
+        'categories': '',
+        'products' : products,
+        'item_count' : item_count,
     }
     return render(request, "main.html", context)
 
