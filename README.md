@@ -119,9 +119,10 @@ JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena
 1. Saya menjalankan virtual environment terlebih dahulu
 2. Kemudian, saya memperbaiki routing urls.py dengan mengubah path main menjadi ''
 3. Selanjutnya, saya membangun forms.py di dalam direktory main untuk menerima data produk yang baru yang akan disimpan ke inventory. Fields yang akan dipakai antara lain ["name", "amount", "price","description", "categories"]
-4. Karena terjadi kebutuhan akan adanya form, maka saya mengimport ProductForm pada views.py. Kemudian, saya juga perlu membangun method create_product untuk membuat formulir yang bisa menambahkan data produk secara otomatis saat submisi dilakukan. Lalu, saya menambahkan fungsi show_main dengan menambahkan konteks antara lain'name', 'amount', 'description', 'date_in', 'stock', 'categories', dan 'products'. 
+4. Karena terjadi kebutuhan akan adanya form, maka saya mengimport ProductForm pada views.py. Kemudian, saya juga perlu membangun method create_product untuk membuat formulir yang bisa menambahkan data produk secara otomatis saat submisi dilakukan. Lalu, saya menambahkan fungsi show_main dengan menambahkan konteks antara lain'name', 'amount', 'description', 'date_in', 'stock', 'categories', dan 'products'. Selain itu, saya juga membangun fungsi show_xml, show_json, show_json_by_id, show_xml_by_id
 5. Lalu saya mengimport fungsi create_product pada urls.py di main, dan menambahkan path url ke dalam variable urlpatterns
 6. Setelah itu, saya membangun folder templates di root. Saya kemudian membuat base.html untuk template dasar sebagai kerangka umum berbagai halaman lainnya dalam web.
 7. Saya kemudian mengatur agar base.html bisa terdeteksi melalui settings.py
-8. Kemudian, saya mengubah tampilan main.html sesuai yang diinginkan.
-9. 
+8. Kemudian, saya mengubah tampilan main.html sesuai yang diinginkan. Saya menambahkan button "Add New Product" dan mengatur tampilan lainnya
+9. Tak berhenti di sana, saya kemudian membuat pada main/templates suatu file create_product.html yang menampilkan form untuk mengisi.
+10. Lalu saya mencoba mengoperasikan postman sebagai data viewer
