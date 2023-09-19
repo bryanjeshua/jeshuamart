@@ -104,6 +104,12 @@ Perbedaan utama antara XML, JSON, dan HTML adalah sebagai berikut
 - JSON = Menggunakan pasangan key dan value, mendukung tipe data string, number, booleans, array, dan object. Kurang deskriptif jika dibandingkan dengan XML. Ukurannya lebih kecil. Umum digunakan pada web applications, APIs, dan file konfigurasi.0 
 - HTML = Menggunakan tags yang sudah didefinisikan sebelumnya, digunakan untuk mempresentasikan data dan bukan untuk mendeskripsikan tipe data. Untuk menjalankannya, diperlukan browser atau HTML parser. Digunakan untuk web page design, dan tidak umum digunakan untuk pertukaran data.    
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
-JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena ...
+JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena
+1. Ringan karena ukuran data yang kecil
+2. Mudah dibaca oleh orang
+3. Dapat diolah oleh berbagai bahasa
+4. Aspek keamanan yang lebih baik
+5. Parsing yang lebih efisien
+6. Kompatibilitas
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 1. 
