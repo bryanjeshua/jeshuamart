@@ -32,13 +32,13 @@
             animation: fade 2s infinite;
         }
         @keyframes fade {
-        0%, 100%{
-            opacity: 0;
+            0%, 100%{
+                opacity: 0;
+            }
+            50%{
+                opacity: 1;
+            }
         }
-        50%{
-            opacity: 1;
-        }
-    }
         .center-button{
             text-align: center;
             font-family: 'Calibri';
@@ -48,9 +48,29 @@
             display: block;
             margin: 0 auto;
         }
+        .logout button{
+            display: block;
+            margin: 0 auto;     
+        }
+        button {
+            background-color: #cee6ff; 
+            color: black;
+            padding: 10px 10px;
+            width: 70px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 11px; 
+            text-align: center;
+        }
+        td button{
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
     </style>
     <h1>Jeshuamart Inventory</h1>
-    <h4>Terdapat {{item_count}} item yang tersimpan  </h4>>
+    <h4>Terdapat {{item_count}} item yang tersimpan  </h4>
     <table>
         <tr>
             <th>Name</th>
@@ -60,11 +80,9 @@
             <th>Date Added</th>
             <th>Stock Less than 5 Days</th>
             <th>Categories</th>
-
+            <th>Actions</th> 
         </tr>
-
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
+    
         {% for product in products %}
             <tr>
                 <td>{{product.name}}</td>
@@ -74,11 +92,28 @@
                 <td>{{product.date_in}}</td>
                 <td>{{product.stock}}</td>
                 <td>{{product.categories}}</td>
-
+                <td>
+                    <br>
+                    <form method="POST" action="{% url 'main:increase_quantity' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Increase</button>
+                    </form>
+                    <br>
+                    <form method="POST" action="{% url 'main:decrease_quantity' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Decrease</button>
+                    </form>
+                    <br>
+                    <form method="POST" action="{% url 'main:delete_product' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                    <br>
+                </td>
             </tr>
         {% endfor %}
     </table>
-
+    
     <br />
 
     <div class="center-button">
@@ -88,13 +123,15 @@
             </button>
         </a>
     </div>
+    <br>
+    <div class="logout">
+        <a href="{% url 'main:logout' %}">
+            <button>
+                Logout
+            </button>
+        </a>
+    </div>
     <h5>Sesi terakhir login: {{ last_login }}</h5>
-    <a href="{% url 'main:logout' %}">
-        <button>
-            Logout
-        </button>
-    </a>
-
-    <h5>Disusun Bryan Jeshua Mario Timung - 2206027021</h5>>
+    <h5>Disusun Bryan Jeshua Mario Timung - 2206027021</h5>
 
 {% endblock content %}

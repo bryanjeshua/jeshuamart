@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from main.forms import ProductForm, Product
 from django.urls import reverse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 import datetime
 from datetime import date
 from django.core import serializers
@@ -16,14 +16,7 @@ def show_main(request):
     products = Product.objects.filter(user=request.user)
     item_count = len(products)
     context = {
-        'name' : "",
-        'amount' : 12,
-        'description': '',
-        'date_in': date.today(),
-        'stock': False,
-        'categories': '',
         'products' : products,
-        'item_count' : item_count,
         'last_login': request.COOKIES['last_login'],
     }
     return render(request, "main.html", context)
@@ -87,3 +80,21 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def increase_quantity(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    product.amount += 1
+    product.save()
+    return redirect('main:show_main')
+
+def decrease_quantity(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    if product.amount > 0:
+        product.amount -= 1
+        product.save()
+    return redirect('main:show_main')
+
+def delete_product(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    product.delete()
+    return redirect('main:show_main')
