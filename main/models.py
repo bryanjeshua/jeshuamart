@@ -1,8 +1,9 @@
 # Create your models here.
 from django.db import models
 from django.utils.timezone import *
-
+from django.contrib.auth.models import User
 class Product(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)  # nama produk
     amount = models.IntegerField(default=0) # dalam lusin
     price = models.IntegerField(default=0) # dalam rupiah

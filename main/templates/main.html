@@ -88,6 +88,13 @@
             </button>
         </a>
     </div>
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    <a href="{% url 'main:logout' %}">
+        <button>
+            Logout
+        </button>
+    </a>
+
     <h5>Disusun Bryan Jeshua Mario Timung - 2206027021</h5>>
 
 {% endblock content %}
