@@ -16,7 +16,9 @@ def show_main(request):
     products = Product.objects.filter(user=request.user)
     item_count = len(products)
     context = {
+        'name':request.user.username,
         'products' : products,
+        'item_count':item_count,
         'last_login': request.COOKIES['last_login'],
     }
     return render(request, "main.html", context)
