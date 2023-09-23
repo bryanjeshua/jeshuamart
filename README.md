@@ -9,8 +9,9 @@ Kelas   : PBP C <br/>
 ## Libraries Used
 1. Django
 2. Datetime
-TUGAS 2
-## WEEK 02
+<details>
+<summary> <b> WEEK 02 </b> </summary>
+
 ## How to Build
 1. Membangun repository github yang baru<br/>
 Repository yang baru dibangun dengan nama **jeshuamart** akan menjadi sarana deployment aplikasi pada adaptable. Ini dilakukan dengan cara membangun folder yang sama dengan nama repositorynya, kemudian menuliskan perintah ```git init``` kemudian ```git branch -M main``` lalu ```git remote add origin https://github.com/bryanjeshua/jeshuamart```
@@ -66,7 +67,6 @@ Di dalam direktori ```main```, saya membuat sebuah file bernama ```urls.py``` se
 ```
 from django.urls import path
 from main.views import show_main
-
 app_name = 'main'
 
 urlpatterns = [
@@ -81,19 +81,25 @@ Untuk memastikan bahwa program yang telah dibangun akan berjalan sebagaimana mes
 Semua perubahan akan ditambahkan dengan menjalankan perintah ```git add .```, lalu lakukan commit dengan menjalankan perintah ```git commit -m "deployment app"```, dan lakukan push ke repository dengan menjalankan instruksi```git push origin master```.
 14. Melakukan deployment ke adaptable<br/>
 Setelah aplikasi telah berjalan di local machine dan telah di-deploy di github, deployment dilakukan melalui adaptable dengan menghubungkan adaptable kepada existing repository, dalam kasus ini ialah repository jeshuamart. Branch yang sesuai dipilih, dengan pengaturan python app template sebagai app template  postgresql sebagai database template, lalu versi python sesuai projek dipilih (dalam kasus ini 3.11) dan deployment command ```python manage.py migrate && gunicorn jeshuamart.wsgi``` dimasukkan.
+
 ## Bagan Request Client 
-![Diagram](https://github.com/bryanjeshua/jeshuamart/blob/master/DIAGRAM%20MVT.png?raw=true)
+![Diagram](https://github.com/bryanjeshua/jeshuamart/blob/master/image/DIAGRAM%20MVT.png)
 Dari gambar di atas dapat ditarik sebuah kesimpulan yakni dalam aplikasi Django, ketika ada http request, maka urls.py akan meneruskannya menuju kepada views.py yang sesuai. Kemudian views.py akan melakukan ragam perintah yang dilakukan, misalnya melakukan read/write data dengan berinteraksi dengan models.py, kemudian main.html akan melakukan pengaturan tampilan yang sesuai terhadap data/komponen yang akan ditampilkan. Setelah itu, maka akan dikirimkan http response berupa file html kepada pengguna oleh views.py.
+
 ## Why do we need virtual environment?
 Kita membutuhkan _virtual environment_ untuk melokalisir pengaturan sejumlah depedency yang berhubungan dengan  proyek kita sehingga bila kedepannya terdapat sejumlah proyek yang membutuhkan sejumlah library/framework yang sama, tidak terjadi _conflict_ terhadap versi maupun pengaturan suatu library yang mampu membuat program tidak berjalan sebagaimana mestinya.
+
 ## Perbedaan antara MVC, MVT, MVVM
 MVT merupakan pola pengembangan arsitektur yang digunakan di _web development_ yang berkaitan erat dengan framework web pada python seperti Django. Terdapat tiga komponen yakni Model (yang merepresentasikan data dan logika utama aplikasi, termasuk membaca dan menyimpan data), View (yang mengatur bagaimana data yang dimiliki akan ditayangkan), Template (yang berfungsi mengatur layout halaman web untuk ditayangkan).
 MVC merupakan pola pengembangan arsitektur yang digunakan dalam _software development_  terutama dalam membangun GUI dan website, dan terdiri atas tiga komponen yakni Model, View (berisi pengaturan layer presentasi data yang didapat dari model, termasuk pengaturan button, forms, dan beragam komponen lainnya), dan Controller (menghubungkan model dan view, misalnya mengelola input dari user pada view untuk diteruskan ke model)
 MVVM merupakan pola pengembangan arsitektur yang berkaitan erat dengan pengembangan GUI terutama pada ragam aplikasi yang membutuhkan data binding. MVVM terdiri atas tiga komponen yakni Model, View (bertugas untuk menampilkan data terhadap user dan menangkap interaksi dari user), dan ViewModel (bertugas menghubungkan model dan view, menunjukan data dan perintah yang dapat view gunakan untuk melakukan data binding, dan menyederhanakan tampilan data dari model agar view lebih mudah untuk menampilkannya tanpa berisi logika tampilan antarmukanya)
 
 Perbedaan ketiganya terdapat pada cara mereka mengatur hubungan antara model, view, dan komponen perantaranya (baik template, controller, maupun viewmodel). MVT menggunakan template sebagai perantara model dan view dan bertugas menggambarkan struktur dari halaman web. MVC menggunakan controller untuk menghubungkan model dan view, mengatur input dari user, dan mengelola alur data. Sedangkan, MVVM menggunakan ViewModel sebagai perantara yang mengelola tampilan data yang akan ditampilkan ke view dan mengelola interaksi user.
+</details>
 
-## WEEK 03
+<details>
+<summary><b>WEEK 03</b></summary>
+
 ## Apa perbedaan antara form POST dan form GET dalam Django?
 Perbedaan antara form POST dan form GET dalam Django adalah sebagai berikut
 <br/>POST :
@@ -102,11 +108,13 @@ Perbedaan antara form POST dan form GET dalam Django adalah sebagai berikut
 <br/>GET :
 - Ketika menggunakan metode GET, data dari form akan dikirimkan sebagai parameter query pada URL. Biasanya, metode ini digunakan ketika kita hendak mengakses data dari server atau ketika kita hendak melakukan operasi membaca. Metode ini juga cocok untuk melakukan pencarian forms sederhana. 
 - Data ini dapat dilihat pada URL. Ini menyebabkan informasi menjadi kurang aman dan membatasi jumlah data yang dapat dikirimkan.
+
 ## Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 Perbedaan utama antara XML, JSON, dan HTML adalah sebagai berikut
 - XML = menggunakan tag (serupa dengan HTML) akan tetapi dapat didefinisikan user. Tidak memiliki tipe data dan memperlakukan semuanya sebagai text. Jauh lebih mudah dibaca orang. Cocok untuk dokumen yang rumit, termasuk pertukaran data yang tidak mendukung JSON.
 - JSON = Menggunakan pasangan key dan value, mendukung tipe data string, number, booleans, array, dan object. Kurang deskriptif jika dibandingkan dengan XML. Ukurannya lebih kecil. Umum digunakan pada web applications, APIs, dan file konfigurasi.0 
 - HTML = Menggunakan tags yang sudah didefinisikan sebelumnya, digunakan untuk mempresentasikan data dan bukan untuk mendeskripsikan tipe data. Untuk menjalankannya, diperlukan browser atau HTML parser. Digunakan untuk web page design, dan tidak umum digunakan untuk pertukaran data.    
+
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
 JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena
 1. Ringan karena ukuran data yang kecil
@@ -115,6 +123,7 @@ JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena
 4. Aspek keamanan yang lebih baik
 5. Parsing yang lebih efisien, bisa langsung dilakukan dengan method JSON.parse()
 6. Kompatibilitas dengan sejumlah framework teknologi (misalnya dengan RESTful APIs.
+
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 1. Saya menjalankan virtual environment terlebih dahulu
 2. Kemudian, saya memperbaiki routing urls.py dengan mengubah path main menjadi ''
@@ -133,3 +142,14 @@ JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena
 3. JSON BY ID ![](https://github.com/bryanjeshua/jeshuamart/blob/master/image/JSONbyID.png)
 4. XML ![](https://github.com/bryanjeshua/jeshuamart/blob/master/image/XML.png)
 5. XML BY ID ![](https://github.com/bryanjeshua/jeshuamart/blob/master/image/XMLbyID.png)
+</details>
+
+<details>
+<summary><b> WEEK 04</b> </summary>
+
+## Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+## Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+## Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+## Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+</details>
