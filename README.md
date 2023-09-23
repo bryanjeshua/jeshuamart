@@ -1,4 +1,3 @@
-![image](https://github.com/bryanjeshua/jeshuamart/assets/119393328/57ed257c-b4ee-4ebe-9636-2a87e1aec74d)
 # Jeshuamart - _Sahabat Belanja Keluarga Anda!_
 [Tautan menuju website](https://jeshuamart.adaptable.app/main/) <br/>
 Nama    : Bryan Jeshua Mario Timung <br/>
@@ -156,4 +155,9 @@ Cookies merupakan data kecil yang disimpan di browser pengguna oleh website. Dja
 ## Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
 Secara default, cookies tetap perlu diwaspadai penggunaannya, terutama untuk menyimpan informasi yang sensitif. Ada sejumlah risiko yang harus diwaspadai antara lain risiko cookies hijacking (pencurian cookies sehingga orang tidak perlu lagi melakukan log in karena sesi pada cookienya masih aktif), risiko modifikasi data jika cookies tidak dienkripsi. Mitigasi yang dapat dilakukan adalah dengan menggunakan HTTPS dan melakukan pengaturan flag "Secure", "HttpOnly", serta tidak sembarangan menggunakan WiFi publik.
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-</details>
+1. Saya mengaktivasi virtual environment
+2. Saya menghubungkan product dengan user. Ini dilakukan dengan cara memanggil User dari library django.contrib.auth.models pada file models.py. Pada models, saya membangun relationship dengan menggunakan ForeignKey pada django. Saya juga menambahkan context untuk menampilkan user yang sedang login.
+3. Saya membangun form registrasi dengan nama file register.html dan membuat fungsinya di views.py. Saya juga mengimport URL pathnya ke urls.py pada variable urlpattern. 
+4. Saya membangun form login dengan nama file login.html dan membuat fungsi login dan logout di views.py. Saya juga mengimport URL pathnya ke urls.py pada variable url pattern. Saya juga sembari mengimplementasikan cookies di tahap ini dengan memanggil method set_cookie pada fungsi login dan delete_cookie pada fungsi logout pada instance response dan menambahkan 'last_login' pada context.
+5. Saya merestriksi akses halaman main dengan builtin login_required
+6. Saya merapikan semua html sesuai keinginan saya, lalu push ke github.
