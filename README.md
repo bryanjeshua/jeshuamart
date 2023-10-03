@@ -167,8 +167,8 @@ Secara default, cookies tetap perlu diwaspadai penggunaannya, terutama untuk men
 <summary><b> WEEK 05</b></summary>
 
 ## Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
-Type selector dapat digunakan untuk memilih semua element berdasarkan nama tagnya. Ini dapat digunakan jika kita hendak melakukan styling terhadap elemen dengan jenis tag tertentu.
-Struktur type selector yakni
+Element selector dapat digunakan untuk memilih semua element berdasarkan nama tagnya. Ini dapat digunakan jika kita hendak melakukan styling terhadap elemen dengan jenis tag tertentu.
+Struktur element selector yakni
 ```
 p {
     background-color : yellow;
@@ -176,7 +176,6 @@ p {
 ```
 ## HTML5 Tags Explanation
 
-Below is a table of some of the HTML5 tags and their functions:
 
 | HTML TAG | Description                        |
 |----------|---------------------------------   |
@@ -199,6 +198,8 @@ Padding merupakan ruang kosong pada bagian dalam sebuah element yang dibatasi bo
 Bootstrap menyediakan jauh lebih banyak komponen yang telah didefinisikan sebelumnya, sedangkan tailwind mengharuskan perogrammer membangun sejumlah komponen jika hendak membuat komponen yang kompleks. Jika kita hendak membangun program sederhana, ataupun baru saja mencoba belajar, bootstrap adalah framework yang cocok karena jauh lebih sederhana dan mudah pakai. Akan tetapi, kita tak akan terlalu bisa membuat banyak komponen yang kompleks. Jika hendak membangun komponen yang kompleks, Tailwind cocok karena menawarkan flexibilitas yang lebih tinggi
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-
+- Saya mengimport semua file yang dibutuhkan seperti text dan gambar ke dalam folder static
+- Setelah itu, saya melakukan load static pada setiap html file 
+- Lalu, saya melakukan styling sesuai keinginan saya. Saya mencari inspirasi yang sesuai di internet dan mengimplementasikannya. Urutannya adalah saya mengerjakan login page, register page, main page, add new product page, dan edit product page. Saya memastikan saat login ada navbar berisi logo perusahaan saya. Saya merapikan semua tabel dan form yang akan muncul. Saya juga memastikan peletakan button sesuai estetika.
 
 </details>
