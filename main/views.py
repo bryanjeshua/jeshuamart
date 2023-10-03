@@ -3,7 +3,7 @@ from main.forms import ProductForm, Product
 from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
 import datetime
-from datetime import date
+from datetime import datetime
 from django.core import serializers
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages  
@@ -15,11 +15,15 @@ from django.contrib.auth.decorators import login_required
 def show_main(request):
     products = Product.objects.filter(user=request.user)
     item_count = len(products)
+    last_login_str = request.COOKIES['last_login']
+    parsed_date_time = datetime.strptime(last_login_str, '%Y-%m-%d %H:%M:%S.%f')
+    formatted_without_ms = parsed_date_time.strftime('%Y-%m-%d %H:%M:%S')
     context = {
         'name':request.user.username,
         'products' : products,
         'item_count':item_count,
-        'last_login': request.COOKIES['last_login'],
+
+        'last_login': formatted_without_ms,
     }
     return render(request, "main.html", context)
 
@@ -70,7 +74,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             response = HttpResponseRedirect(reverse("main:show_main")) 
-            response.set_cookie('last_login', str(datetime.datetime.now()))
+            response.set_cookie('last_login', str(datetime.now()))
             return response
         else:
             messages.info(request, 'Sorry, incorrect username or password. Please try again.')

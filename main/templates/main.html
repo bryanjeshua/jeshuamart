@@ -1,35 +1,33 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
+
     <style>
+        @font-face {
+            font-family: 'DelaGothic';  
+            src: url('{% static "DelaGothicOne-Regular.ttf" %}') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         table {
             border-collapse: collapse;
-            width: 80%;
             font-family: 'Calibri';
             padding: 10px;
-            margin: 100px ;
-        }
-    
-        th, td {
-            border: 1px solid black;
-            text-align: left;
-            padding: 3px;
-            font-family: 'Calibri';
-        }
-        
-        th{
-            text-align: center;
-            padding: 10;
+
         }
 
         h1{ text-align: center;
-            font-family: 'Calibri';        
+            font-family: 'Calibri';     
+            margin-top: 15px;   
         }
         h5 {
             text-align: center;
             font-family: 'Calibri';
         }
         h4 {
+            margin-top: 10px;
+            margin-bottom: 10px;
             text-align: center;
             font-family: 'Calibri';
             animation: fade 2s infinite;
@@ -42,108 +40,151 @@
                 opacity: 1;
             }
         }
-        .center-button{
+        .center-button a, .logout a{
             text-align: center;
             font-family: 'Calibri';
+            text-decoration: none;
         }
 
         .center-button button{
             display: block;
             margin: 0 auto;
+            text-decoration: none;
         }
         .logout button{
             display: block;
-            margin: 0 auto;     
+            margin: 0 auto;  
+            text-decoration: none;   
         }
         button {
             background-color: #cee6ff; 
             color: black;
-            padding: 10px 10px;
             width: 70px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 11px; 
             text-align: center;
+            text-decoration: none;
         }
         td button{
             display: block;
             margin: 0 auto;
             text-align: center;
+            text-decoration: none;
         }
+        .custom-bg{
+            background-color: #47a3ff;
+        }
+        .large-font{
+            font-size: 28px;
+            font-weight: bold;
+            font-family: 'DelaGothic', sans-serif;
+        }
+        .scrollable-table {
+            overflow-x: auto;
+        }
+        table thead th{
+            text-align: center;
+            vertical-align: middle;
+        }
+        .btn-custom {
+            width: 150px;  
+            height: 50px; 
+            display: inline-block;
+            vertical-align: top;
+            margin: 20px;
+            font-size: 15px;
+        }
+        .btn-add{
+            background-color:#45a049 ;
+            color: white;
+        }
+
     </style>
-    <h1>Jeshuamart Inventory</h1>
+    <nav class="navbar sticky-top navbar-light custom-bg">
+        <a class="navbar-brand mx-auto large-font" href="#">Jeshuamart</a>
+    </nav>
     <h4>Welcome, {{name}}!</h4>
     <h4>Terdapat {{item_count}} item yang tersimpan  </h4>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Amount</th>
-            <th>Description</th>
-            <th>Date Added</th>
-            <th>Stock Less than 5 Days</th>
-            <th>Categories</th>
-            <th>Actions</th> 
-        </tr>
-    
-        {% for product in products %}
-            <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
-                <td>
-                    <span style="margin-right: 10px;">{{product.amount}}</span>
-                    <span class="button">
-                        <form method="POST" style="display: inline;" action="{% url 'main:increase_quantity' product.id %}">
-                            {% csrf_token %}
-                            <button type="submit" style="width: 25px; padding: 3px;">⬆️</button>
-                        </form>
-                    </span>
-                    <span class="button">
-                        <form method="POST" style="display: inline;" action="{% url 'main:decrease_quantity' product.id %}">
-                            {% csrf_token %}
-                            <button type="submit" style="width: 25px; padding: 3px;">⬇️</button>
-                        </form>
-                    </span>
-                </td>         
-                </td>
-                <td>{{product.description}}</td>
-                <td>{{product.date_in}}</td>
-                <td>{{product.stock}}</td>
-                <td>{{product.categories}}</td>
-                <td>
-                    <form method="POST" action="{% url 'main:edit_product' product.pk %}">
-                        {% csrf_token %}
-                        <button type="submit">Edit</button>
-                    </form>
-                    <br>
-                    <form method="POST" action="{% url 'main:delete_product' product.id %}">
-                        {% csrf_token %}
-                        <button type="submit">Delete</button>
-                    </form>
-                    <br>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-    
-    <br />
+   
+    <div class="scrollable-table">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Stock Less than 5 Days</th>
+                    <th scope="col">Categories</th>
+                    <th scope="col">Actions</th> 
+                </tr>
+            </thead>
+            {% for product in products %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{product.name}}</th>
+                    <td>{{product.price}}</td>
+                    <td>
+                        <div class="d-flex justify-content-center set-margin">
+                            <span class="button">
+                                <form method="POST" style="display: inline;" action="{% url 'main:decrease_quantity' product.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" style="width: 25px; padding: 3px;">-</button>
+                                </form>
+                            </span>
 
-    <div class="center-button">
+                            <span style="margin-right: 10px; margin-left:10px;">{{product.amount}}</span>
+                            <span class="button">
+                                <form method="POST" style="display: inline;" action="{% url 'main:increase_quantity' product.id %}">
+                                    {% csrf_token %}
+                                    <button type="submit" style="width: 25px; padding: 3px;">+</button>
+                                </form>
+                            </span>
+
+                        </div>
+                    </td>         
+                    </td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.date_in}}</td>
+                    <td>{{product.stock}}</td>
+                    <td>{{product.categories}}</td>
+                    <td>
+                        <div class="d-flex justify-content-center set-margin">
+                            <form method="POST" action="{% url 'main:edit_product' product.pk %}" style="margin: 2px;">
+                                {% csrf_token %}
+                                <button type="submit">Edit</button>
+                            </form>
+                            <br>
+                            <form method="POST" action="{% url 'main:delete_product' product.id %}" style="margin: 2px;">
+                                {% csrf_token %}
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                        <br>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+    <br />
+    <div class="d-flex justify-content-center set-margin">
         <a href="{% url 'main:create_product' %}">
-            <button>
+            <button class="btn-add btn-custom">
                 Add New Product
             </button>
         </a>
-    </div>
-    <br>
-    <div class="logout">
         <a href="{% url 'main:logout' %}">
-            <button>
+            <button type="button" class="btn btn-danger btn-custom">
                 Logout
             </button>
         </a>
     </div>
+    
+    <br>
     <h5>Sesi terakhir login: {{ last_login }}</h5>
     <h5>Disusun Bryan Jeshua Mario Timung - 2206027021</h5>
 

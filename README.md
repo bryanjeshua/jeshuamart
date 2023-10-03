@@ -161,3 +161,44 @@ Secara default, cookies tetap perlu diwaspadai penggunaannya, terutama untuk men
 4. Saya membangun form login dengan nama file login.html dan membuat fungsi login dan logout di views.py. Saya juga mengimport URL pathnya ke urls.py pada variable url pattern. Saya juga sembari mengimplementasikan cookies di tahap ini dengan memanggil method set_cookie pada fungsi login dan delete_cookie pada fungsi logout pada instance response dan menambahkan 'last_login' pada context.
 5. Saya merestriksi akses halaman main dengan builtin login_required
 6. Saya merapikan semua html sesuai keinginan saya, lalu push ke github.
+</details>
+
+<details>
+<summary><b> WEEK 05</b></summary>
+
+## Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+Type selector dapat digunakan untuk memilih semua element berdasarkan nama tagnya. Ini dapat digunakan jika kita hendak melakukan styling terhadap elemen dengan jenis tag tertentu.
+Struktur type selector yakni
+```
+p {
+    background-color : yellow;
+}
+```
+## HTML5 Tags Explanation
+
+Below is a table of some of the HTML5 tags and their functions:
+
+| HTML TAG | Description                        |
+|----------|---------------------------------   |
+| `<td>`   | Membuat sebuah sel dalam sebuah    |
+|`<tr>`    | Membuat baris dalam sebuah tabel   |
+|`<th>`    | Membuat sebuah sel header tabel    |
+|`<style>` | Membuat informasi gaya dalam dokumen |
+|`<thead>`| Membuat isi header dalam satu tabel menjadi satu kelompok|
+|`<tbody>`| Membuat isi body dalam satu tabel menjadi satu kelompok|
+|`<a>`| Membuat hyperlink |
+|`<link>`|  Membangun hubungan antara dokumen dan sumber daya eksternal|
+|`<img>`| Membuat gambar |
+|`<option>`|Membuat drop down|
+|`<form>` | Membuat sebuah form HTML untuk input dari pengguna|
+
+## Jelaskan perbedaan antara margin dan padding.
+Padding merupakan ruang kosong pada bagian dalam sebuah element yang dibatasi border, sedangkan margin merupakan ruang di luar border yang membatasi sebuah elemen dengan elemen yang lain. 
+
+## Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+
+</details>

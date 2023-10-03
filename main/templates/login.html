@@ -6,6 +6,17 @@
 
 {% block content %}
     <style>
+        @font-face {
+            font-family: 'DelaGothic';  
+            src: url('{% static "DelaGothicOne-Regular.ttf" %}') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        h3{
+            font-size: 28px;
+            font-weight: bold;
+            font-family: 'DelaGothic', sans-serif;
+        }
         body{
             background-image: url('{% static "login-image.jpg" %}');
             background-size: cover;
