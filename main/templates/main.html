@@ -3,6 +3,12 @@
 {% block content %}
 
     <style>
+        body{
+            background-image: url('{% static "main.jpg" %}');
+            background-size: cover;
+            height: 100vh;
+            font-family:Arial, Helvetica, sans-serif;
+        }
         @font-face {
             font-family: 'DelaGothic';  
             src: url('{% static "DelaGothicOne-Regular.ttf" %}') format('truetype');
@@ -12,7 +18,7 @@
 
         table {
             border-collapse: collapse;
-            font-family: 'Calibri';
+            font-family: sans-serif;
             padding: 10px;
 
         }

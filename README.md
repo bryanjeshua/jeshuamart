@@ -196,7 +196,7 @@ Below is a table of some of the HTML5 tags and their functions:
 Padding merupakan ruang kosong pada bagian dalam sebuah element yang dibatasi border, sedangkan margin merupakan ruang di luar border yang membatasi sebuah elemen dengan elemen yang lain. 
 
 ## Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
-
+Bootstrap menyediakan jauh lebih banyak komponen yang telah didefinisikan sebelumnya, sedangkan tailwind mengharuskan perogrammer membangun sejumlah komponen jika hendak membuat komponen yang kompleks. Jika kita hendak membangun program sederhana, ataupun baru saja mencoba belajar, bootstrap adalah framework yang cocok karena jauh lebih sederhana dan mudah pakai. Akan tetapi, kita tak akan terlalu bisa membuat banyak komponen yang kompleks. Jika hendak membangun komponen yang kompleks, Tailwind cocok karena menawarkan flexibilitas yang lebih tinggi
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 

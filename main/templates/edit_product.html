@@ -4,6 +4,12 @@
 
 {% block content %}
 <style>
+    body{
+            background-image: url('{% static "main.jpg" %}');
+            background-size: cover;
+            height: 100vh;
+            font-family:Arial, Helvetica, sans-serif;
+    }
     h1{
         text-align: center;
         font-family: sans-serif;
@@ -65,11 +71,11 @@
         border-bottom: 1px solid #ddd;
     }
 
-    table.center-table tr:nth-child(odd) { /* Adding a zebra-stripe effect */
+    table.center-table tr:nth-child(odd) { 
         background-color: #f2f2f2;
     }
 
-    table.center-table tr:hover {
+    table.center-table tr:nth-child(even) {
         background-color: #f5f5f5;
     }
 
@@ -119,7 +125,7 @@
                     </td>
                 </tr>
             </table>
-        </form>div>
+        </form>
     </form>
 </div>
 {% endblock %}
