@@ -167,7 +167,7 @@ Secara default, cookies tetap perlu diwaspadai penggunaannya, terutama untuk men
 <summary><b> WEEK 05</b></summary>
 
 ## Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
-Element selector dapat digunakan untuk memilih semua element berdasarkan nama tagnya. Ini dapat digunakan jika kita hendak melakukan styling terhadap elemen dengan jenis tag tertentu.
+Element selector dapat digunakan untuk memilih semua element berdasarkan nama tagnya. Ini dapat digunakan jika kita hendak melakukan styling terhadap semua elemen dengan jenis tag tertentu.
 Struktur element selector yakni
 ```
 p {
