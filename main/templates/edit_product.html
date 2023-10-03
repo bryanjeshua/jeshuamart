@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<style>.content-wrapper {
+    display: grid;
+    place-items: center;      /* Center items both horizontally and vertically */
+    height: 100vh;            /* Full height of the viewport */
+    width: 80%;              /* Full width to make sure content doesn't overflow */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.product-form {
+    width: 100%;
+}
+
+.form-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-submit {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+</style>
+<div class="content-wrapper">
+    <h1 class="title">Edit Product</h1>
+    <form method="POST" class="product-form">
+        {% csrf_token %}
+        <table class="form-table">
+            {{ form.as_table }}
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit" class="btn-submit">Edit Product</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+{% endblock %}

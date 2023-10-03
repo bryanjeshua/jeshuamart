@@ -12,6 +12,7 @@ from main.views import (
     increase_quantity,  
     decrease_quantity,  
     delete_product,    
+    edit_product,
 ) 
 app_name = "main"
 urlpatterns = [
@@ -27,4 +28,5 @@ urlpatterns = [
     path('increase-quantity/<int:product_id>/', increase_quantity, name='increase_quantity'),
     path('decrease-quantity/<int:product_id>/', decrease_quantity, name='decrease_quantity'),
     path('delete-product/<int:product_id>/', delete_product, name='delete_product'),
+    path('edit-product/<int:id>', edit_product, name='edit_product'),
 ]

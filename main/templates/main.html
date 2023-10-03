@@ -4,19 +4,22 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 100%;
+            width: 80%;
             font-family: 'Calibri';
+            padding: 10px;
+            margin: 100px ;
         }
     
         th, td {
             border: 1px solid black;
-            padding: 8px;
             text-align: left;
+            padding: 3px;
             font-family: 'Calibri';
         }
         
         th{
             text-align: center;
+            padding: 10;
         }
 
         h1{ text-align: center;
@@ -88,21 +91,30 @@
             <tr>
                 <td>{{product.name}}</td>
                 <td>{{product.price}}</td>
-                <td>{{product.amount}}</td>
+                <td>
+                    <span style="margin-right: 10px;">{{product.amount}}</span>
+                    <span class="button">
+                        <form method="POST" style="display: inline;" action="{% url 'main:increase_quantity' product.id %}">
+                            {% csrf_token %}
+                            <button type="submit" style="width: 25px; padding: 3px;">⬆️</button>
+                        </form>
+                    </span>
+                    <span class="button">
+                        <form method="POST" style="display: inline;" action="{% url 'main:decrease_quantity' product.id %}">
+                            {% csrf_token %}
+                            <button type="submit" style="width: 25px; padding: 3px;">⬇️</button>
+                        </form>
+                    </span>
+                </td>         
+                </td>
                 <td>{{product.description}}</td>
                 <td>{{product.date_in}}</td>
                 <td>{{product.stock}}</td>
                 <td>{{product.categories}}</td>
                 <td>
-                    <br>
-                    <form method="POST" action="{% url 'main:increase_quantity' product.id %}">
+                    <form method="POST" action="{% url 'main:edit_product' product.pk %}">
                         {% csrf_token %}
-                        <button type="submit">Increase</button>
-                    </form>
-                    <br>
-                    <form method="POST" action="{% url 'main:decrease_quantity' product.id %}">
-                        {% csrf_token %}
-                        <button type="submit">Decrease</button>
+                        <button type="submit">Edit</button>
                     </form>
                     <br>
                     <form method="POST" action="{% url 'main:delete_product' product.id %}">
