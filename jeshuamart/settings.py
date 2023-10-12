@@ -39,16 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'livereload',
+    # 'livereload',
     'django.contrib.staticfiles',
     'main',
 ]
 # DJANGO_LIVESYNC = {
 #     'PORT': 9999 # this is optional and is default set to 9001.
 # }
-MIDDLEWARE_CLASSES = (
-    'livereload.middleware.LiveReloadScript',
-)
+# MIDDLEWARE_CLASSES = (
+#     'livereload.middleware.LiveReloadScript',
+# )
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
