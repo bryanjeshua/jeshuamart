@@ -13,6 +13,9 @@ from main.views import (
     decrease_quantity,  
     delete_product,    
     edit_product,
+    get_product_json,
+    create_ajax,
+    delete_product_ajax,
 ) 
 app_name = "main"
 urlpatterns = [
@@ -29,4 +32,7 @@ urlpatterns = [
     path('decrease-quantity/<int:product_id>/', decrease_quantity, name='decrease_quantity'),
     path('delete-product/<int:product_id>/', delete_product, name='delete_product'),
     path('edit-product/<int:id>', edit_product, name='edit_product'),
+    path('get-product/', get_product_json, name='get_product_json'),
+    path('create-ajax/', create_ajax, name='create_ajax'),
+    path('delete-product-ajax/<int:product_id>/', delete_product_ajax, name='delete_product_ajax'),
 ]

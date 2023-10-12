@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
     <style>
-        body{
+    body{
             background-image: url('{% static "main.jpg" %}');
             background-size: cover;
             height: 100vh;
             font-family:Arial, Helvetica, sans-serif;
-        }
+    }
+
         @font-face {
             font-family: 'DelaGothic';  
             src: url('{% static "DelaGothicOne-Regular.ttf" %}') format('truetype');
@@ -64,7 +64,7 @@
         }
         button {
             background-color: #cee6ff; 
-            color: black;
+            color: blue;
             width: 70px;
             border: none;
             border-radius: 5px;
@@ -106,83 +106,65 @@
             background-color:#45a049 ;
             color: white;
         }
-
     </style>
-    <nav class="navbar sticky-top navbar-light custom-bg">
+    
+    <nav class="navbar navbar-light custom-bg">
         <a class="navbar-brand mx-auto large-font" href="#">Jeshuamart</a>
     </nav>
+
     <h4>Welcome, {{name}}!</h4>
     <h4>Terdapat {{item_count}} item yang tersimpan  </h4>
-   
-    <div class="scrollable-table">
-        <table class="table">
-            <thead class="table-dark">
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Date Added</th>
-                    <th scope="col">Stock Less than 5 Days</th>
-                    <th scope="col">Categories</th>
-                    <th scope="col">Actions</th> 
-                </tr>
-            </thead>
-            {% for product in products %}
-            <tbody>
-                <tr>
-                    <th scope="row">{{product.name}}</th>
-                    <td>{{product.price}}</td>
-                    <td>
-                        <div class="d-flex justify-content-center set-margin">
-                            <span class="button">
-                                <form method="POST" style="display: inline;" action="{% url 'main:decrease_quantity' product.id %}">
-                                    {% csrf_token %}
-                                    <button type="submit" style="width: 25px; padding: 3px;">-</button>
-                                </form>
-                            </span>
-
-                            <span style="margin-right: 10px; margin-left:10px;">{{product.amount}}</span>
-                            <span class="button">
-                                <form method="POST" style="display: inline;" action="{% url 'main:increase_quantity' product.id %}">
-                                    {% csrf_token %}
-                                    <button type="submit" style="width: 25px; padding: 3px;">+</button>
-                                </form>
-                            </span>
-
+    
+    <!-- INI UNTUK TABLE PRODUCTNYA  -->
+    <table class="row" id="product_container"></table>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
                         </div>
-                    </td>         
-                    </td>
-                    <td>{{product.description}}</td>
-                    <td>{{product.date_in}}</td>
-                    <td>{{product.stock}}</td>
-                    <td>{{product.categories}}</td>
-                    <td>
-                        <div class="d-flex justify-content-center set-margin">
-                            <form method="POST" action="{% url 'main:edit_product' product.pk %}" style="margin: 2px;">
-                                {% csrf_token %}
-                                <button type="submit">Edit</button>
-                            </form>
-                            <br>
-                            <form method="POST" action="{% url 'main:delete_product' product.id %}" style="margin: 2px;">
-                                {% csrf_token %}
-                                <button type="submit">Delete</button>
-                            </form>
+                        <div class="mb-3">
+                            <label for="amount" class="col-form-label">Amount:</label>
+                            <input type="number" class="form-control" id="amount" name="amount"></input>
                         </div>
-                        <br>
-                    </td>
-                </tr>
-            </tbody>
-            {% endfor %}
-        </table>
+                        <div class="mb-3">
+                            <label for="price" class="col-form-label">Price:</label>
+                            <input type="number" class="form-control" id="price" name="price"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="categories" class="col-form-label">Categories:</label>
+                            <input type="text" class="form-control" id="categories" name="categories"></input>
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                </div>
+            </div>
+        </div>
     </div>
     <br />
     <div class="d-flex justify-content-center set-margin">
-        <a href="{% url 'main:create_product' %}">
-            <button class="btn-add btn-custom">
-                Add New Product
+        <a>    
+            <button type="button" class="btn btn-primary btn-custom" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add Product
             </button>
-        </a>
+        </a>    
         <a href="{% url 'main:logout' %}">
             <button type="button" class="btn btn-danger btn-custom">
                 Logout
@@ -193,5 +175,75 @@
     <br>
     <h5>Sesi terakhir login: {{ last_login }}</h5>
     <h5>Disusun Bryan Jeshua Mario Timung - 2206027021</h5>
+    
+    <script>
 
+        async function getProducts() {
+            return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+        }
+
+        async function refreshProducts() {
+            document.getElementById("product_container").innerHTML = "";
+            const products = await getProducts();
+
+            let htmlString = "";
+            products.forEach((item) => {
+                htmlString += `
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">${item.fields.name}</h5>
+                                <div class="d-flex justify-content-center set-margin">
+                                    <p class="card-text">Amount:  </p>
+                                    <span class="button">
+                                        <a href="/decrease-quantity/${item.pk}">
+                                            <button type="submit" style="width: 25px; padding: 3px;">-</button>
+                                        </a>
+                                    </span>
+                                    <p class="card-text">${item.fields.amount}</p>
+
+                                    <span class="button">
+                                        <a href="/increase-quantity/${item.pk}">
+                                            <button type="submit" style="width: 25px; padding: 3px;">+</button>
+                                        </a>
+                                    </span>
+                                </div>
+                                <p class="card-text">Price: ${item.fields.price}</p>
+                                <p class="card-text">${item.fields.description}</p>
+                                <p class="card-text"> Date Added ${item.fields.date_in}</p>  
+                                <p class="card-text"> Categories ${item.fields.categories}</p>                              
+                                <p class="card-text"> Stock less than five days? ${item.fields.stock}</p>
+                                <div class="d-flex justify-content-center set-margin">
+                                    <span class="button">
+                                        <button type="button" onclick="deleteProduct(${item.pk}); return false;" class="btn delete-product-button" style="background-color: red; color:white; width: 100px; padding: 3px;" data-product-id="${item.pk}">Delete Product</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> `
+            });
+            document.getElementById("product_container").innerHTML = htmlString
+        }
+
+        refreshProducts()
+
+        function addProduct() {
+            fetch("{% url 'main:create_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(refreshProducts)
+
+            document.getElementById("form").reset()
+            return false
+        }
+        document.getElementById("button_add").onclick = addProduct
+        function deleteProduct(productId) {
+            fetch(`delete-product-ajax/${productId}`, {
+                method: "DELETE",
+            }).then(refreshProducts)
+            return false
+        }
+
+
+    </script>
 {% endblock content %}

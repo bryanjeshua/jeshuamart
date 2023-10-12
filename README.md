@@ -203,3 +203,26 @@ Bootstrap menyediakan jauh lebih banyak komponen yang telah didefinisikan sebelu
 - Lalu, saya melakukan styling sesuai keinginan saya. Saya mencari inspirasi yang sesuai di internet dan mengimplementasikannya. Urutannya adalah saya mengerjakan login page, register page, main page, add new product page, dan edit product page. Saya memastikan saat login ada navbar berisi logo perusahaan saya. Saya merapikan semua tabel dan form yang akan muncul. Saya juga memastikan peletakan button sesuai estetika.
 
 </details>
+<details>
+<summary><b>WEEK 06</b></summary>
+
+## Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Synchronous programming mengeksekusi program yang diperintahkan satu per satu secara berurutan. Sedangkan, asynchronous programming memungkinkan tugas-tugas yang perlu dieksekusi untuk berjalan tanpa harus menunggu yang sebelumnya selesai. Ini akan memungkinkan program berjalan lebih responsif.
+## Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Event-driven programming merupakan paradigma pemrograman ketika program merespons kejadian yang terjadi seperti klik mouse, hover mouse, input pengguna, hingga permintaan AJAX. Pada tugas ini, contoh event-driven programming adalah ketika menekan tombol add product, akan muncul jendela modal yang meminta data-data benda yang hendak dibuat.
+
+## Jelaskan penerapan asynchronous programming pada AJAX.
+Penerapan nya ada pada permintaan HTTP (seperti GET dan POST) untuk dilakukan secara asynchronous sehingga tidak menghentikan program utama. Hasil dari permintaan tersebut akan diproses saat data diterima dari server tanpa harus menunggu terlebih dahulu.
+
+## Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+Fetch API adalah standar baru untuk membuat HTTP Request di Javascript. Dia menggunakan Promis untuk mengelola respons dari HTTP Request. Kelebihannya adalah lebih modern, ringan, dan terintegrasi dengan Javascript yang baru. Namun, pemakaian fetch API bisa membutuhkan lebih banyak kode jika penggunaan yang hendak dilakukan lebih kompleks.
+jQuery adalah library JavaScript untuk mengimplementasikan AJAX yang dirancang supaya bisa cross browser. Kode dari jQuery versi lama masih bisa berfungsi di jQuery yang baru yang menunjukkan tingginya kompatibilitas. jQuery juga mendukung high level abstraction untuk mengimplementasikan AJAX, animasi, dan DOM manipulation sehingga proses pengembangan lebih cepat. Banyak juga plugin yang dimiliki oleh jQuery sehingga akan mempercepat development. Menurut saya, karena proyek ini merupakan proyek kecil, dan akan lebih baik menggunakan standar yang lebih baru, preferensi saya jatuh ke Fetch API. Banyak fitur javascript modern yang dapat diimplementasikan oleh FetchAPI. Tapi, ada kemungkinan jika proyeknya lebih besar dan perlu mengintegrasikan ke beragam browser, jQuery akan lebih baik untuk digunakan. 
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+- Saya mengubah tampilan awalnya terlebih dahulu dari bentuk tabel menjadi bentuk cards. Ini dilakukan dengan cara fetch semua datanya terlebih dahulu dalam fungsi getProducts. Lalu, saya bangun kode untuk cardsnya dalam fungsi refreshProducts.
+- Lalu, Saya membangun fungsi create_ajax di views.py. Kemudian saya menghubungkan pathnya pada urls.py. 
+- Setelah itu, saya membangun kode untuk menampilkan modalnya beserta buttonnya yang akan menjadi event source nya.
+- Kemudian, di main.html saya membuat kode addProducts yang akan terpanggil ketika tombol add product di jendela modal dipanggil.
+- Setelah itu, saya juga membangun fungsi delete_product_ajax untuk menghapus product yang terpilih. Saya juga menghubungkan pathnya pada urls.py.
+- Setelahnya, saya membangun kode untuk menampilkan button delete untuk menghapus productnya dan kode javascriptnya yang akan terpanggil jika ditekan. 
+</details>
