@@ -212,7 +212,7 @@ Synchronous programming mengeksekusi program yang diperintahkan satu per satu se
 Event-driven programming merupakan paradigma pemrograman ketika program merespons kejadian yang terjadi seperti klik mouse, hover mouse, input pengguna, hingga permintaan AJAX. Pada tugas ini, contoh event-driven programming adalah ketika menekan tombol add product, akan muncul jendela modal yang meminta data-data benda yang hendak dibuat.
 
 ## Jelaskan penerapan asynchronous programming pada AJAX.
-Penerapan nya ada pada permintaan HTTP (seperti GET dan POST) untuk dilakukan secara asynchronous sehingga tidak menghentikan program utama. Hasil dari permintaan tersebut akan diproses saat data diterima dari server tanpa harus menunggu terlebih dahulu.
+Penerapan nya ada pada permintaan HTTP (seperti GET dan POST) untuk dilakukan secara asynchronous sehingga tidak menghentikan program utama. Hasil dari permintaan tersebut akan diproses saat data diterima dari server tanpa harus menunggu terlebih dahulu. Ini akan memungkinkan web kita lebih responsif dan pengalaman penggunanya lebih baik.
 
 ## Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
 Fetch API adalah standar baru untuk membuat HTTP Request di Javascript. Dia menggunakan Promis untuk mengelola respons dari HTTP Request. Kelebihannya adalah lebih modern, ringan, dan terintegrasi dengan Javascript yang baru. Namun, pemakaian fetch API bisa membutuhkan lebih banyak kode jika penggunaan yang hendak dilakukan lebih kompleks.
