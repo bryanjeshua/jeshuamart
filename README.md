@@ -9,7 +9,7 @@ Kelas   : PBP C <br/>
 1. Django
 2. Datetime
 <details>
-<summary> <b> WEEK 02 </b> </summary>
+<summary> <b> WEEK 02  </b> </summary>
 
 ## How to Build
 1. Membangun repository github yang baru<br/>

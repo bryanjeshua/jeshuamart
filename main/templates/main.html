@@ -113,7 +113,7 @@
     </nav>
 
     <h4>Welcome, {{name}}!</h4>
-    <h4>Terdapat {{item_count}} item yang tersimpan  </h4>
+    <h4 id="item-count">Terdapat {{item_count}} item yang tersimpan  </h4>
     
     <!-- INI UNTUK TABLE PRODUCTNYA  -->
     <table class="row" id="product_container"></table>
@@ -177,7 +177,8 @@
     <h5>Disusun Bryan Jeshua Mario Timung - 2206027021</h5>
     
     <script>
-
+        let productCount = document.getElementById("item-count").innerHTML.split(" ")[1];
+        let integerProductCount = parseInt(productCount);
         async function getProducts() {
             return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
         }
@@ -223,6 +224,7 @@
                     </div> `
             });
             document.getElementById("product_container").innerHTML = htmlString
+            document.getElementById("item-count").innerHTML = `Terdapat ${integerProductCount} item yang tersimpan  `
         }
 
         refreshProducts()
@@ -231,19 +233,21 @@
             fetch("{% url 'main:create_ajax' %}", {
                 method: "POST",
                 body: new FormData(document.querySelector('#form'))
-            }).then(refreshProducts)
-
-            document.getElementById("form").reset()
+                
+            }).then(() => {integerProductCount++;
+                refreshProducts();}
+            )
+            document.getElementById("form").reset();
             return false
         }
         document.getElementById("button_add").onclick = addProduct
+        
         function deleteProduct(productId) {
             fetch(`delete-product-ajax/${productId}`, {
                 method: "DELETE",
-            }).then(refreshProducts)
+            }).then(() => {integerProductCount--;
+                refreshProducts();})
             return false
         }
-
-
     </script>
 {% endblock content %}
