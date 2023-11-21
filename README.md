@@ -3,7 +3,7 @@
 Nama    : Bryan Jeshua Mario Timung <br/>
 NPM     : 2206027021 <br/>
 Kelas   : PBP C <br/>
-## Requirements
+## Requirements  
 1. Python3
 ## Libraries Used
 1. Django
