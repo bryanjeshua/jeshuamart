@@ -7,7 +7,7 @@ Kelas   : PBP C <br/>
 1. Python3
 ## Libraries Used
 1. Django
-2. Datetime
+2. Datetime 
 <details>
 <summary> <b> WEEK 02</b> </summary>
 
